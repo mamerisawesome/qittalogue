@@ -12,12 +12,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #main {
-    padding: ${SIZE.size16} ${SIZE.size24};
+    padding: ${SIZE.size64} ${SIZE.size24};
   }
 
   * {
     font-size: ${FONT_SIZE.primary};
     color: ${COLOR.black};
+  }
+
+  .cat-card {
+    min-height: 250px;
   }
 `;
 

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import BreedSearch from '../../components/BreedSearch';
 import CatsByBreed from '../../components/CatsByBreed';
+import { APP_NAME } from '../../constants/global';
 
 const Container = styled.div``;
 
@@ -27,7 +28,7 @@ const Cats = () => {
   return (
     <Container>
       <Row>
-        Cats
+        <h2>{APP_NAME}</h2>
       </Row>
 
       <Row>

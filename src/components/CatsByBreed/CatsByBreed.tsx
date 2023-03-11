@@ -1,10 +1,11 @@
-import Button from 'react-bootstrap/Button';
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
 
 import { useGetBreedById } from '../../api-query/CatQuery';
-import { SIZE } from '../../constants/styles';
+import { COLOR, SIZE } from '../../constants/styles';
 import useIsLoading from '../../hooks/useIsLoading';
 import { Image, ROUTES } from '../../types';
 import BackButton from '../BackButton';
@@ -20,8 +21,28 @@ const CatList = styled.div`
 `;
 
 const CardImage = styled(Card.Img)`
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+`;
+
+const Overlay = styled.a`
+  width: 100%;
+  height: 100%;
+
+  background-color: ${COLOR.black}00;
+  color: ${COLOR.white}00;
+  text-decoration: none;
+  transition: background-color 0.5s, color 0.25s;
+
+  :hover {
+    color: ${COLOR.white}aa;
+    background-color: ${COLOR.black}aa;
+  }
+`;
+
+const DetailLink = styled.span`
+  border-radius: ${SIZE.size4};
+  font-weight: bold;
 `;
 
 const CatsByBreed = (props: Props) => {
@@ -32,11 +53,13 @@ const CatsByBreed = (props: Props) => {
   useIsLoading(isLoading);
 
   const catsDisplay = !!data?.length && data.map((cat: Image) => (
-    <Card key={cat.id}>
+    <Card key={cat.id} className="cat-card">
       <CardImage src={cat.url} />
-      <Card.Body>
-        <Button as="a" variant="primary" href={`${ROUTES.cat}/${cat.id}`}>View Details</Button>
-      </Card.Body>
+      <Card.ImgOverlay as={Overlay} href={`${ROUTES.cat}/${cat.id}`}>
+        <DetailLink>
+          <FontAwesomeIcon icon={faChevronCircleRight} /> View Details
+        </DetailLink>
+      </Card.ImgOverlay>
     </Card>
   ));
 

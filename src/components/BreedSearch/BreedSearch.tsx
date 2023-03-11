@@ -70,7 +70,6 @@ const BreedSearch = (props: Props) => {
 
   return (
     <Form.Group>
-      <Form.Label htmlFor="breed-select">Breed</Form.Label>
       <Form.Control
         id="breed-select"
         type="search"
