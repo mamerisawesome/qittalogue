@@ -1,12 +1,12 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import styled from "styled-components";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import styled from 'styled-components';
 
-import { useGetBreedById } from "../../api-query/CatQuery";
-import { SIZE } from "../../constants/styles";
-import useIsLoading from "../../hooks/useIsLoading";
-import { Image, ROUTES } from "../../types";
+import { useGetBreedById } from '../../api-query/CatQuery';
+import { SIZE } from '../../constants/styles';
+import useIsLoading from '../../hooks/useIsLoading';
+import { Image, ROUTES } from '../../types';
 
 type Props = {
   breedId: string;
@@ -24,6 +24,7 @@ const CatList = styled.div`
 
 const CardImage = styled(Card.Img)`
   height: 250px;
+  object-fit: cover;
 `;
 
 const CatsByBreed = (props: Props) => {
