@@ -20,3 +20,9 @@ export const getBreedById = async (breedId: string, pagination?: Pagination) => 
 
   return res.data;
 };
+
+export const getCatById = async (catId: string) => {
+  const res = await Api.get(`/images/${catId}`);
+
+  return res.data;
+};

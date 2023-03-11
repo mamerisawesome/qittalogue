@@ -4,7 +4,8 @@ import * as CatApi from '../api/CatApi';
 import { Breed } from '../types';
 
 const QUERY_KEYS = {
-  breed: 'breeds',
+  breed: 'breed',
+  cat: 'cat',
 };
 
 export const useGetAllBreed = (searchQuery: string = '') => (
@@ -24,4 +25,8 @@ export const useGetBreedById = (breedId: string, page?: number) => (
     [QUERY_KEYS.breed, breedId],
     () => CatApi.getBreedById(breedId, { page }),
   )
+);
+
+export const useGetCatById = (catId: string) => (
+  useQuery([QUERY_KEYS.cat, catId], () => CatApi.getCatById(catId), { enabled: !!catId })
 );
