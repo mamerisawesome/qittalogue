@@ -3,12 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Cat from './pages/Cat';
 import Cats from './pages/Cats';
-
-export enum ROUTES {
-  homepage = '/',
-  cat = '/cat',
-  catById = '/cat/:id',
-}
+import { ROUTES } from './types';
 
 const Router = () => {
   return (
