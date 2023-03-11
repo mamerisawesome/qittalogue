@@ -1,3 +1,4 @@
+import { Container } from 'react-bootstrap';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Cat from './pages/Cat';
@@ -11,13 +12,15 @@ export enum ROUTES {
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={ROUTES.homepage} element={<Cats />} />
-        <Route path={ROUTES.catById} element={<Cat />} />
-        <Route path={ROUTES.cat} element={<Cats />} />
-      </Routes>
-    </BrowserRouter>
+    <Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path={ROUTES.homepage} element={<Cats />} />
+          <Route path={ROUTES.catById} element={<Cat />} />
+          <Route path={ROUTES.cat} element={<Cats />} />
+        </Routes>
+      </BrowserRouter>
+    </Container>
   );
 };
 

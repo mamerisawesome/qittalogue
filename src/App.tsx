@@ -19,7 +19,7 @@ const App = () => {
           </header>
 
           <main id="main">
-              <Router />
+            <Router />
           </main>
         </div>
       </QueryClientProvider>

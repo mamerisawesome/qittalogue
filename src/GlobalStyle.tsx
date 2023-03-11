@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { COLOR, SIZE } from './constants/styles';
+import { COLOR, FONT_SIZE, SIZE } from './constants/styles';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
 
   #main {
     padding: ${SIZE.size16} ${SIZE.size24};
+  }
+
+  * {
+    font-size: ${FONT_SIZE.primary};
+    color: ${COLOR.black};
   }
 `;
 
