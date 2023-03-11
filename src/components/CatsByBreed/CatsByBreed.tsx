@@ -7,14 +7,11 @@ import { useGetBreedById } from '../../api-query/CatQuery';
 import { SIZE } from '../../constants/styles';
 import useIsLoading from '../../hooks/useIsLoading';
 import { Image, ROUTES } from '../../types';
+import BackButton from '../BackButton';
 
 type Props = {
   breedId: string;
 };
-
-const BackButton = styled(Button)`
-  margin: ${SIZE.size16} ${SIZE.size0};
-`;
 
 const CatList = styled.div`
   display: grid;
@@ -46,9 +43,7 @@ const CatsByBreed = (props: Props) => {
   return (
     <div>
       <Row>
-        <BackButton as="a" href={ROUTES.cat}>
-          {'<-'} Go Back
-        </BackButton>
+        <BackButton href={ROUTES.cat} />
       </Row>
 
       <Row>
