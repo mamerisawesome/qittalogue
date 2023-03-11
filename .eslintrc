@@ -52,6 +52,9 @@
     "react/react-in-jsx-scope": "off",
     "import-quotes/import-quotes": [1, "single"]
   },
+  "env": {
+    "browser": true
+  },
   "globals": {
     "process": true
   }
