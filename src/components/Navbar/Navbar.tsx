@@ -1,8 +1,9 @@
+import BootstrapContainer from 'react-bootstrap/Container';
 import styled from 'styled-components';
 
 import { APP_NAME } from '../../constants/global';
 
-const Container = styled.div``;
+const Container = styled(BootstrapContainer)``;
 
 const Navbar = () => {
   return (

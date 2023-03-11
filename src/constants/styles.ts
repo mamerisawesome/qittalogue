@@ -8,5 +8,6 @@ export const SIZE = {
 };
 
 export const COLOR = {
+  white: '#ffffff',
   backdrop: '#dadada',
 };
