@@ -1,14 +1,18 @@
 import './App.css';
+import GlobalStyle from './GlobalStyle';
 import Router from './Router';
+import Navbar from './components/Navbar';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        Qittalogue
+    <div id="app">
+      <GlobalStyle />
+
+      <header id="header">
+        <Navbar />
       </header>
 
-      <main>
+      <main id="main">
         <Router />
       </main>
     </div>

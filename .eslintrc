@@ -17,7 +17,7 @@
     }
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "import"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "import", "import-quotes"],
   "rules": {
     "arrow-parens": "error",
     "no-console": "error",
@@ -49,6 +49,10 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import-quotes/import-quotes": [1, "single"]
+  },
+  "globals": {
+    "process": true
   }
 }
