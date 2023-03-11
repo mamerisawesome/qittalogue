@@ -1,7 +1,6 @@
-import BootstrapContainer from 'react-bootstrap/Container';
 import styled from 'styled-components';
 
-const Container = styled(BootstrapContainer)``;
+const Container = styled.div``;
 
 const Cat = () => {
   return (

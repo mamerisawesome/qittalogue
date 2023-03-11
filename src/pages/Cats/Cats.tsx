@@ -1,21 +1,17 @@
-import { useEffect } from 'react';
-import BootstrapContainer from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
 
-import { useGetAllBreed } from '../../api-query/CatQuery';
-import { useLoader } from '../../contexts/LoaderContext';
+import BreedSearch from '../../components/BreedSearch';
 
-const Container = styled(BootstrapContainer)``;
+const Container = styled.div``;
 
 const Cats = () => {
-  const { setIsLoading } = useLoader();
-  const { isLoading } = useGetAllBreed();
+  const [selectedBreed, setSelectedBreed] = useState<string | null>(null);
 
-  useEffect(() => {
-    setIsLoading(isLoading);
-  }, [isLoading, setIsLoading]);
+  const breedDisplay = !selectedBreed
+    ? <BreedSearch setBreed={setSelectedBreed} />
+    : null;
 
   return (
     <Container>
@@ -24,11 +20,7 @@ const Cats = () => {
       </Row>
 
       <Row>
-        <Form.Label htmlFor="breed-select">Breed</Form.Label>
-        <Form.Control
-          id="breed-select"
-          type="search"
-        />
+        {breedDisplay}
       </Row>
     </Container>
   );
