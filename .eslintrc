@@ -1,0 +1,54 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "18.2"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "import"],
+  "rules": {
+    "arrow-parens": "error",
+    "no-console": "error",
+    "no-alert": "error",
+    "no-unused-vars": "off",
+    "no-var": "error",
+    "eqeqeq": "error",
+    "no-magic-numbers": ["error", { "ignore": [-1, 0, 1], "ignoreArrayIndexes": true }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always-and-inside-groups",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "import/no-extraneous-dependencies": "error",
+    "import/no-unresolved": "error",
+    "import/no-named-as-default": "error",
+    "prefer-const": "error",
+    "react/jsx-handler-names": ["error", { "eventHandlerPrefix": "handle", "eventHandlerPropPrefix": "on" }],
+    "react/no-unused-prop-types": "error",
+    "react/no-unused-state": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }],
+    "react/prefer-stateless-function": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}
