@@ -14,12 +14,25 @@ export const getBreedById = async (breedId: string, pagination?: Pagination) => 
     params: {
       page: pagination?.page ?? 1,
       limit: ITEMS_PER_PAGE,
-      order: '"ASC"',
       breed_id: breedId,
     }
   });
 
-  return res.data;
+  const paginationRes = {
+    count: Number(res.headers['pagination-count']),
+    limit: Number(res.headers['pagination-limit']),
+    page: Number(res.headers['pagination-page']),
+  };
+
+  return {
+    data: res.data,
+    pagination: {
+      ...paginationRes,
+      nextCursor: (paginationRes.limit * (paginationRes.page)) < paginationRes.count
+        ? paginationRes.page + 1
+        : undefined,
+    },
+  };
 };
 
 export const getCatById = async (catId: string) => {

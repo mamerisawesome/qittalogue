@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .cat-card {
-    min-height: 250px;
+    height: 300px;
   }
 `;
 

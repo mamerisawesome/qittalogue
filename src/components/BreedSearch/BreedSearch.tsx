@@ -66,6 +66,10 @@ const BreedSearch = () => {
 
   useIsLoading(isLoading);
 
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <Form.Group>
       <Form.Control

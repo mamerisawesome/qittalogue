@@ -21,6 +21,8 @@ const Container = styled.div`
   height: 100vh;
 
   background-color: ${COLOR.white}cc;
+
+  z-index: 100;
 `;
 
 const Loader = () => {
