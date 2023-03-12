@@ -18,7 +18,7 @@ const Profile = styled.div`
   height: 100vh;
 
   @media (max-width: 991px) {
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 250px auto;
     grid-template-columns: unset;
   }
 

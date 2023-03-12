@@ -54,6 +54,10 @@ const DetailLink = styled.span`
   background-color: ${COLOR.quote};
 `;
 
+const ButtonContainer = styled.div`
+  margin-top: ${SIZE.size32};
+`;
+
 const CatsByBreed = (props: Props) => {
   const { breedId } = props;
 
@@ -93,7 +97,9 @@ const CatsByBreed = (props: Props) => {
           {catsDisplay}
         </CatList>
 
-        {showMoreDisplay}
+        <ButtonContainer>
+          {showMoreDisplay}
+        </ButtonContainer>
       </Row>
     </div>
   );
