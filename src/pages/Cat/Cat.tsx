@@ -15,8 +15,17 @@ const Profile = styled.div`
   top: 0;
 
   display: grid;
-  grid-template-columns: 50% 50%;
   height: 100vh;
+
+  @media (max-width: 991px) {
+    grid-template-rows: 50% 50%;
+    grid-template-columns: unset;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: unset;
+  }
 `;
 
 const CatImage = styled(Image)`
@@ -38,6 +47,14 @@ const Information = styled.div`
   text-align: left;
 
   background-color: ${COLOR.backdrop};
+
+  @media (max-width: 991px) {
+    padding: ${SIZE.size16} ${SIZE.size64};
+  }
+
+  @media (min-width: 992px) {
+    padding: ${SIZE.size64};
+  }
 `;
 
 const InfoItems = styled.div`
@@ -47,20 +64,12 @@ const InfoItems = styled.div`
     padding: ${SIZE.size8} ${SIZE.size0};
   }
 
-  @media (min-width: 576px) {
-    grid-template-columns: 1fr;
-  }
-
-  @media (min-width: 768px) {
+  @media (min-width: 991px) {
     grid-template-columns: 1fr;
   }
 
   @media (min-width: 992px) {
     grid-template-columns: 40% 1fr;
-  }
-
-  @media (min-width: 1400px) {
-    grid-template-columns: 20% 1fr;
   }
 `;
 
