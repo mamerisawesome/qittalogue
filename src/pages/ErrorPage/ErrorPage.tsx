@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { Button } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import { useNavigate } from 'react-router-dom';
 
-import { APP_NAME } from "../../constants/global";
-import { useError } from "../../contexts/ErrorContext";
-import { ROUTES } from "../../types";
+import { APP_NAME } from '../../constants/global';
+import { useError } from '../../contexts/ErrorContext';
+import { ROUTES } from '../../types';
 
 const ErrorPage = () => {
   const { setIsError } = useError();

@@ -1,10 +1,10 @@
-import { faBug } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Toast from "react-bootstrap/Toast";
-import styled from "styled-components";
+import { faBug } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Toast from 'react-bootstrap/Toast';
+import styled from 'styled-components';
 
-import { SIZE } from "../../constants/styles";
-import { useError } from "../../contexts/ErrorContext";
+import { SIZE } from '../../constants/styles';
+import { useError } from '../../contexts/ErrorContext';
 
 type Props = {
   isAutohide?: boolean;
