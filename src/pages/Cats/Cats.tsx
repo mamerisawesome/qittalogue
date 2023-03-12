@@ -16,7 +16,7 @@ const Cats = () => {
   const breedParameter = useMemo(() => params.get('breed'), [params]);
 
   const breedDisplay = !selectedBreed
-    ? <BreedSearch setBreed={setSelectedBreed} />
+    ? <BreedSearch />
     : <CatsByBreed breedId={selectedBreed} />;
 
   useEffect(() => {

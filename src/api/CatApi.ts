@@ -12,8 +12,9 @@ export const getBreeds = async () => {
 export const getBreedById = async (breedId: string, pagination?: Pagination) => {
   const res = await Api.get('/images/search', {
     params: {
-      page: pagination ?? 1,
+      page: pagination?.page ?? 1,
       limit: ITEMS_PER_PAGE,
+      order: '"ASC"',
       breed_id: breedId,
     }
   });

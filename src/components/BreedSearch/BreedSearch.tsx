@@ -1,22 +1,20 @@
 import { ChangeEvent, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useGetAllBreed } from '../../api-query/CatQuery';
 import { COLOR, FONT_SIZE, SIZE } from '../../constants/styles';
 import useIsLoading from '../../hooks/useIsLoading';
-
-type Props = {
-  setBreed: Function;
-};
+import { ROUTES } from '../../types';
 
 const Options = styled(Card)`
   position: relative;
   margin-top: ${SIZE.size8};
 
   overflow-y: scroll;
-  max-height: 65vh;
+  max-height: 70vh;
 `;
 
 const Option = styled.div`
@@ -40,11 +38,10 @@ const Option = styled.div`
   }
 `;
 
-const BreedSearch = (props: Props) => {
-  const { setBreed } = props;
-
+const BreedSearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { data, isLoading } = useGetAllBreed(searchQuery);
+  const navigate = useNavigate();
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -52,7 +49,8 @@ const BreedSearch = (props: Props) => {
 
   const handleSelect = (breedId: string) => {
     setSearchQuery('');
-    setBreed(breedId);
+    navigate(`${ROUTES.cat}?breed=${breedId}`);
+
   };
 
   const breedSearchResultsDisplay = !!data?.length && (

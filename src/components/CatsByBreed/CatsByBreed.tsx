@@ -1,5 +1,7 @@
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMemo, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
@@ -16,7 +18,7 @@ type Props = {
 
 const CatList = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: ${SIZE.size16};
 `;
 
@@ -48,11 +50,14 @@ const DetailLink = styled.span`
 const CatsByBreed = (props: Props) => {
   const { breedId } = props;
 
-  const { data, isLoading } = useGetBreedById(breedId);
+  const [page, setPage] = useState<number>(1);
+  const { data, isLoading, hasNextPage, fetchNextPage } = useGetBreedById(breedId, page);
+
+  const breeds = useMemo(() => data?.pages?.flatMap((records) => records), [data]);
 
   useIsLoading(isLoading);
 
-  const catsDisplay = !!data?.length && data.map((cat: Image) => (
+  const catsDisplay = !!breeds?.length && breeds.map((cat: Image) => (
     <Card key={cat.id} className="cat-card">
       <CardImage src={cat.url} />
       <Card.ImgOverlay as={Overlay} href={`${ROUTES.cat}/${cat.id}`}>
@@ -62,6 +67,15 @@ const CatsByBreed = (props: Props) => {
       </Card.ImgOverlay>
     </Card>
   ));
+
+  const handleShowMore = () => {
+    setPage(page + 1);
+    fetchNextPage();
+  };
+
+  const showMoreDisplay = hasNextPage && (
+    <Button onClick={handleShowMore}>Show More</Button>
+  );
 
   return (
     <div>
@@ -73,6 +87,8 @@ const CatsByBreed = (props: Props) => {
         <CatList>
           {catsDisplay}
         </CatList>
+
+        {showMoreDisplay}
       </Row>
     </div>
   );
