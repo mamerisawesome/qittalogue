@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Cat from './pages/Cat';
 import Cats from './pages/Cats';
+import ErrorPage from './pages/ErrorPage';
 import { ROUTES } from './types';
 
 const Router = () => {
@@ -13,6 +14,7 @@ const Router = () => {
           <Route path={ROUTES.homepage} element={<Cats />} />
           <Route path={ROUTES.catById} element={<Cat />} />
           <Route path={ROUTES.cat} element={<Cats />} />
+          <Route path={ROUTES.error} element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </Container>

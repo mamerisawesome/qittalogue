@@ -18,4 +18,10 @@ Api.interceptors.request.use(async (config) => {
   };
 });
 
+const handleError = () => {
+  window.location.assign('/error');
+};
+
+Api.interceptors.response.use((res) => res, handleError);
+
 export default Api;
