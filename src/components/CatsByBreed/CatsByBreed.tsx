@@ -17,8 +17,23 @@ type Props = {
 
 const CatList = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: ${SIZE.size16};
+
+  @media (min-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 `;
 
 const CardImage = styled(Card.Img)`

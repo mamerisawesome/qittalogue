@@ -20,7 +20,7 @@ const Profile = styled.div`
 `;
 
 const CatImage = styled(Image)`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   place-self: end;
@@ -42,10 +42,25 @@ const Information = styled.div`
 
 const InfoItems = styled.div`
   display: grid;
-  grid-template-columns: 15% 1fr;
 
   & > * {
     padding: ${SIZE.size8} ${SIZE.size0};
+  }
+
+  @media (min-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: 40% 1fr;
+  }
+
+  @media (min-width: 1400px) {
+    grid-template-columns: 20% 1fr;
   }
 `;
 
